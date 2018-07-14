@@ -16,15 +16,15 @@ class TodoItem extends Component {
         const onRemove = this.props.onRemove
 
         return(
-            <div>
-                <ul
+            <div className='item'>
+                <div 
                     style={{
                         textDecoration: checked ? 'line-through' : 'none'
                     }} >
                     <input type='checkbox' checked={ checked } onChange={() => this.props.onToggle(id)} />
                     { text }
                     <button className='removeButton' onClick={() => onRemove(id)}>delete</button>
-                </ul>
+                </div>
             </div>
         )
     }

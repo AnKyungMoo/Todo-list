@@ -7,8 +7,8 @@ class TodoForm extends Component {
         const { value, onInsert, onChange } = this.props
 
         return(
-            <div>
-                <div className='title'>Todo-List</div>
+            <div className='title'>
+                <div>Todo-List</div>
                 <input value={ value } onChange={ onChange }/>
                 <button onClick={ onInsert }>+</button>
             </div>
