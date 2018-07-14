@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
-import Todo from './Todo'
+import TodoForm from './TodoForm'
+import TodoList from './TodoList'
+import './App.css'
 
 class App extends Component {
   render() {
     return (
-      <Todo />
+      <div className='template'>
+        <TodoForm />
+        <TodoList />
+      </div>
     )
   }
 }

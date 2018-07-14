@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Map, List } from 'immutable'
-import './Todo.css'
+import TodoItem from './TodoItem'
 
-class Todo extends Component {
+class TodoList extends Component {
     
     static defaultProps = {
         todos: List([
@@ -18,18 +18,25 @@ class Todo extends Component {
             })
         ])
     }
-    
-    render() {
-        return(
-            <form className='template'>
-                <div className='title'>Todo-List</div>
-                <input />
-                <button >+</button>
-                <div>{this.props.todos}</div>
-            </form>
+
+    render()
+    {
+        const list = this.props.todos.map(
+            todo => (
+                <TodoItem
+                  key={todo.id}
+                  todo={todo}
+                />
+            )
+        )
+
+        return (
+            <div>
+                { list }
+            </div>
         )
     }
+
 }
 
-
-export default Todo
+export default TodoList
