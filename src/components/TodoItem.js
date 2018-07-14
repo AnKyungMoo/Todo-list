@@ -1,32 +1,30 @@
 import React, { Component } from 'react'
-import { Map, List } from 'immutable'
+import { List } from 'immutable'
+import './TodoItem.css'
 
 class TodoItem extends Component {
 
     static defaultProps = {
-        todos: List([
-            Map({
-                id: 0,
-                text: 'default0',
-                checked: false
-            }),
-            Map({
-                id: 1,
-                text: 'default1',
-                checked: true
-            })
-        ])
+        todo: List(),
+        input: ''
     }
 
     render() {
-        const { id, text, checked } = this.props.todo.toJS()
+        const id = this.props.id
+        const text = this.props.text
+        const checked = this.props.checked
+        const onRemove = this.props.onRemove
 
         return(
             <div>
-                { id }
-                { text }
-                { checked }
-                <button>delete</button>
+                <ul
+                    style={{
+                        textDecoration: checked ? 'line-through' : 'none'
+                    }} 
+                    onClick={() => this.props.onToggle(id)}>
+                    { text }
+                </ul>
+                <button className='insertButton' onClick={() => onRemove(id)}>delete</button>
             </div>
         )
     }

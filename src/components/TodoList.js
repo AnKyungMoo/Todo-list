@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Map, List } from 'immutable'
+import TodoForm from './TodoForm'
 import TodoItem from './TodoItem'
 
 class TodoList extends Component {
@@ -16,22 +17,36 @@ class TodoList extends Component {
                 text: 'default1',
                 checked: true
             })
-        ])
+        ]),
+        input: ''
     }
 
     render()
     {
-        const list = this.props.todos.map(
-            todo => (
-                <TodoItem
-                  key={todo.id}
-                  todo={todo}
-                />
-            )
+        const { todos, input, onInsert, onToggle, onRemove, onChange } = this.props
+        const list = todos.map(
+            todo => {
+                const { id, text, checked } = todo.toJS()
+                return (
+                    <TodoItem
+                        id={ id }
+                        text={ text }
+                        checked={ checked }
+                        onToggle={ onToggle }
+                        onRemove={ onRemove }
+                        key={ id }
+                    />
+                )
+            }
         )
 
         return (
             <div>
+                <TodoForm 
+                    value={ input } 
+                    onInsert={ onInsert }
+                    onChange={ onChange }
+                />
                 { list }
             </div>
         )

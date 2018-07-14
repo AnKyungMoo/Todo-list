@@ -4,12 +4,14 @@ import './TodoForm.css'
 class TodoForm extends Component {
     
     render() {
+        const { input, onInsert, onChange } = this.props
+
         return(
-            <form>
+            <div>
                 <div className='title'>Todo-List</div>
-                <input />
-                <button >+</button>
-            </form>
+                <input value={ input } onChange={ onChange }/>
+                <button onClick={onInsert}>+</button>
+            </div>
         )
     }
 }
