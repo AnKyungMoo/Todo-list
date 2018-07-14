@@ -1,4 +1,4 @@
-import { createAction, handleActions } from 'react-actions'
+import { createAction, handleActions } from 'redux-actions'
 import { Map, List } from 'immutable'
 
 const CHANGE_INPUT = "CHANGE_INPUT"
@@ -6,10 +6,10 @@ const INSERT = 'INSERT'
 const TOGGLE = 'TOGGLE'
 const REMOVE = 'REMOVE'
 
-export const changeInput = createActions(CHANGE_INPUT, value => value)
+export const changeInput = createAction(CHANGE_INPUT, value => value)
 export const insert = createAction(INSERT, text => text)
-export const toggle = createToggle(TOGGLE, id => id)
-export const REMOVE = createRemove(REMOVE, id => id)
+export const toggle = createAction(TOGGLE, id => id)
+export const remove = createAction(REMOVE, id => id)
 
 let id = 0
 
