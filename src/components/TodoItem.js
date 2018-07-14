@@ -20,8 +20,8 @@ class TodoItem extends Component {
                 <ul
                     style={{
                         textDecoration: checked ? 'line-through' : 'none'
-                    }} 
-                    onClick={() => this.props.onToggle(id)}>
+                    }} >
+                    <input type='checkbox' checked={ checked } onChange={() => this.props.onToggle(id)} />
                     { text }
                     <button className='insertButton' onClick={() => onRemove(id)}>delete</button>
                 </ul>
