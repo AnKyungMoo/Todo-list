@@ -23,7 +23,7 @@ class TodoItem extends Component {
                     }} >
                     <input type='checkbox' checked={ checked } onChange={() => this.props.onToggle(id)} />
                     { text }
-                    <button className='insertButton' onClick={() => onRemove(id)}>delete</button>
+                    <button className='removeButton' onClick={() => onRemove(id)}>delete</button>
                 </ul>
             </div>
         )
