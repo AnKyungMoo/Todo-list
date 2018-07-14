@@ -23,8 +23,8 @@ class TodoItem extends Component {
                     }} 
                     onClick={() => this.props.onToggle(id)}>
                     { text }
+                    <button className='insertButton' onClick={() => onRemove(id)}>delete</button>
                 </ul>
-                <button className='insertButton' onClick={() => onRemove(id)}>delete</button>
             </div>
         )
     }
